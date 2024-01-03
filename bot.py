@@ -9,7 +9,7 @@ DIR = f"{os.getcwd()}/"
 
 video_formats = ['mp4', 'avi', 'mkv', 'mov', 'wmv', 'flv', 'webm', '3gp']
 audio_formats = ['mp3', 'wav', 'ogg', 'aac', 'flac', 'wma', 'm4a']
-text_formats = ['txt', 'csv', 'json', 'xml', 'html', 'md', 'pdf']
+text_formats = ['txt', 'csv', 'json', 'xml', 'html', 'md', 'pdf', 'text']
 coding_languages = ['py', 'java', 'js', 'c', 'css', 'ruby', 'php', 'swift']
 
 formats = [video_formats, audio_formats, text_formats, coding_languages]
