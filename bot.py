@@ -32,7 +32,7 @@ def rename(_, message):
 
     try:
         filename = message.text.replace(message.text.split(" ")[0], "")
-        if not filename.endswith(formats):
+        if not any(filename.endswith(format) for format_list in formats for format in format_list):
             message.reply_text("Please Enter Text Or Please Enter Correct Formats Like .mp4")
         else:
             if reply := message.reply_to_message:
