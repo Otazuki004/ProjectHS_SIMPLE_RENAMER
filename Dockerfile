@@ -1,7 +1,5 @@
 FROM python
 
-WORKDIR /root/
-
 COPY . .
 
 RUN pip3 install --upgrade pip setuptools
