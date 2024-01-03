@@ -45,7 +45,7 @@ def rename(_, message):
                     bot.send_message(message.chat.id, "**USAGE** `/rename` [file name] And Reply A media")
         except Exception as e:
             print(e)
-            message.reply_text("**Error**", e)
+            message.reply_text(f"**Error {e}**")
     else:
         bot.send_message(message.chat.id, "**Reply To A File 🗃️**")
         
