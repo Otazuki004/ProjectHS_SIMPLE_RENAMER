@@ -53,5 +53,7 @@ def rename(_, message):
 def start(_, message):
     bot.send_message(message.chat.id, "**USAGE** `/rename` [file name] And Reply A media")
 
-
+@bot.on_message(filters.command("repo"))
+def repo(_, message):
+    bot.send_message(message.chat.id, "** Thanks For Finding Out Repo Please Star Us And Give Credits, This Repo Made By @Hyper_Speed0 and its Created for Our bot Making Client So I can't Give That Renamer Repo If You Need Codes Only Take It From https://github.com/Otazuki004/QuantumRoBot.git ✅**")
 bot.run()
