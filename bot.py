@@ -33,7 +33,7 @@ def rename(_, message):
         try:
             filename = message.text.replace(message.text.split(" ")[0], "")
             if not any(filename.endswith(format) for format_list in formats for format in format_list):
-                message.reply_text("Please Enter Text Or Please Enter Correct Formats Like .mp4")
+                message.reply_text("**Enter text ⚡ or a valid format (e.g., .mp4).**")
             else:
                 if reply := message.reply_to_message:
                     x = message.reply_text("Downloading.....")
@@ -47,7 +47,7 @@ def rename(_, message):
             print(e)
             message.reply_text("**Error**", e)
     else:
-        bot.send_message(message.chat.id, "**USAGE** `/rename` [file name] And Reply A media")
+        bot.send_message(message.chat.id, "**Reply To A File 🗃️**")
         
 @bot.on_message(filters.command("start"))
 def start(_, message):
