@@ -13,7 +13,16 @@ b_tok = "6196780979:AAEn9mTjzwGLeevJBC2h5dhpixKkuHtMEfU" # Your Bot Token
 
 #addclients
 bot = Client("Hyper Speed", bot_token=b_tok, api_id=a_id, api_hash=a_hash, plugins=dict(root="root/plugins"))
+
+
+def restart_program():
+    python = sys.executable
+    script = os.path.abspath(sys.argv[0])
+    os.execl(python, python, script, *sys.argv[1:])
+
 #Init End
+
+
 
 
 @bot.on_message(filters.command("rename"))
@@ -46,8 +55,14 @@ def rename(_, message):
             print(None)
         elif filename.endswith(".m4a"):
             print(None)
-        elif filename.endswith("crt"):
+        elif filename.endswith(".html"):
             print(None)
+        elif filename.endswith(".css"):
+            print(None)
+        else:
+            message.reply_text("Invalid Format ❌ Or Enter Format Like '.mp4'")
+            restart_program()
+            
     except Exception as e:
         print(e)
 
