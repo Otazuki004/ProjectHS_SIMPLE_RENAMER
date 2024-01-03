@@ -29,23 +29,25 @@ bot = Client("Hyper Speed", bot_token=b_tok, api_id=a_id, api_hash=a_hash, plugi
 @bot.on_message(filters.command("rename"))
 def rename(_, message):
     thumb_id = f"{DIR}ok.jpg"
-
-    try:
-        filename = message.text.replace(message.text.split(" ")[0], "")
-        if not any(filename.endswith(format) for format_list in formats for format in format_list):
-            message.reply_text("Please Enter Text Or Please Enter Correct Formats Like .mp4")
-        else:
-            if reply := message.reply_to_message:
-                x = message.reply_text("Downloading.....")
-                path = reply.download(file_name=filename)
-                x.edit("Uploading.....")
-                message.reply_document(path, thumb=thumb_id, caption=filename)
-                os.remove(path)
+    if reply := message.reply_to_message:
+        try:
+            filename = message.text.replace(message.text.split(" ")[0], "")
+            if not any(filename.endswith(format) for format_list in formats for format in format_list):
+                message.reply_text("Please Enter Text Or Please Enter Correct Formats Like .mp4")
             else:
-                bot.send_message(message.chat.id, "**USAGE** `/rename` [file name] And Reply A media")
-    except Exception as e:
-        print(e)
-        message.reply_text("**Error**", e)
+                if reply := message.reply_to_message:
+                    x = message.reply_text("Downloading.....")
+                    path = reply.download(file_name=filename)
+                    x.edit("Uploading.....")
+                    message.reply_document(path, thumb=thumb_id, caption=filename)
+                    os.remove(path)
+                else:
+                    bot.send_message(message.chat.id, "**USAGE** `/rename` [file name] And Reply A media")
+        except Exception as e:
+            print(e)
+            message.reply_text("**Error**", e)
+    else:
+        bot.send_message(message.chat.id, "**USAGE** `/rename` [file name] And Reply A media")
         
 @bot.on_message(filters.command("start"))
 def start(_, message):
