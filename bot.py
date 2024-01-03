@@ -14,12 +14,6 @@ b_tok = "6196780979:AAEn9mTjzwGLeevJBC2h5dhpixKkuHtMEfU" # Your Bot Token
 #addclients
 bot = Client("Hyper Speed", bot_token=b_tok, api_id=a_id, api_hash=a_hash, plugins=dict(root="root/plugins"))
 
-
-def restart_program():
-    python = sys.executable
-    script = os.path.abspath(sys.argv[0])
-    os.execl(python, python, script, *sys.argv[1:])
-
 #Init End
 
 
@@ -31,37 +25,6 @@ def rename(_, message):
 
     try:
         filename = message.text.replace(message.text.split(" ")[0], "")
-        if filename.endswith(".mp4"):
-            print(None)
-        elif filename.endswith(".mkv"):
-            print(None)
-        elif filename.endswith(".mp3"):
-            print(None)
-        elif filename.endswith(".jpeg"):
-            print(None)
-        elif filename.endswith(".png"):
-            print(None)
-        elif filename.endswith(".jpg"):
-            print(None)
-        elif filename.endswith(".py"):
-            print(None)
-        elif filename.endswith(".java"):
-            print(None)
-        elif filename.endswith(".txt"):
-            print(None)
-        elif filename.endswith(".text"):
-            print(None)
-        elif filename.endswith(".ogg"):
-            print(None)
-        elif filename.endswith(".m4a"):
-            print(None)
-        elif filename.endswith(".html"):
-            print(None)
-        elif filename.endswith(".css"):
-            print(None)
-        else:
-            message.reply_text("Invalid Format ❌ Or Enter Format Like '.mp4'")
-            restart_program()
             
     except Exception as e:
         print(e)
