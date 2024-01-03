@@ -12,6 +12,8 @@ audio_formats = ['mp3', 'wav', 'ogg', 'aac', 'flac', 'wma', 'm4a']
 text_formats = ['txt', 'csv', 'json', 'xml', 'html', 'md', 'pdf']
 coding_languages = ['py', 'java', 'js', 'c', 'css', 'ruby', 'php', 'swift']
 
+formats = [video_formats, audio_formats, text_formats, coding_languages]
+
 a_id = "10187126" # Your Api Id
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752" # Your Api Hash 
 b_tok = "6196780979:AAEn9mTjzwGLeevJBC2h5dhpixKkuHtMEfU" # Your Bot Token
@@ -30,7 +32,7 @@ def rename(_, message):
 
     try:
         filename = message.text.replace(message.text.split(" ")[0], "")
-        if not filename.endswith(video_formats, audio_formats, text_formats, coding_languages):
+        if not filename.endswith(f"{formats}"):
             message.reply_text("Please Enter Text Or Please Enter Correct Formats Like .mp4")
         else:
             if reply := message.reply_to_message:
